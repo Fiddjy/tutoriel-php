@@ -1,15 +1,7 @@
 <?php
-function nav_item(string $lien, string $titre): string 
-{
-  $classe = 'nav-item';
-  if ($_SERVER['SCRIPT_NAME'] === $lien) {
-    $classe = $classe . ' active';
-  }
-  return '<li class="' . $classe . '">
-      <a class="nav-link" href="' . $lien . '">' . $titre . '</a>
-    </li>';
-}
+  require_once 'functions.php';
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,8 +29,7 @@ function nav_item(string $lien, string $titre): string
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <?= nav_item('/index.php', 'Accueil'); ?>
-          <?= nav_item('/contact.php', 'Contact'); ?>
+          <?= nav_menu('nav-link') ?>
         </ul>
       </div>
     </nav>
