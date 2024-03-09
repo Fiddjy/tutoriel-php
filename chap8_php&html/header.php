@@ -1,3 +1,15 @@
+<?php
+function nav_item(string $lien, string $titre): string 
+{
+  $classe = 'nav-item';
+  if ($_SERVER['SCRIPT_NAME'] === $lien) {
+    $classe = $classe . ' active';
+  }
+  return '<li class="' . $classe . '">
+      <a class="nav-link" href="' . $lien . '">' . $titre . '</a>
+    </li>';
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,12 +37,8 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item <?php if ($nav === "index"): ?> active<?php endif; ?>">
-            <a class="nav-link" href="/index.php">Accueil</a>
-          </li>
-          <li class="nav-item <?php if ($nav === "contact"): ?> active<?php endif; ?>">
-            <a class="nav-link" href="/contact.php">Contact</a>
-          </li>
+          <?= nav_item('/index.php', 'Accueil'); ?>
+          <?= nav_item('/contact.php', 'Contact'); ?>
         </ul>
       </div>
     </nav>
