@@ -95,14 +95,4 @@ foreach(['parfum', 'supplement', 'cornet'] as $name) {
     </div>
 </div>
 
-<h2>$_GET</h2>
-<pre>
-    <?php var_dump($_GET); ?>
-</pre>
-
-<h2>$_POST</h2>
-<pre>
-    <?php var_dump($_POST); ?>
-</pre>
-
 <?php require 'footer.php'; ?>
