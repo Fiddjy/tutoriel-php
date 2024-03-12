@@ -55,4 +55,15 @@ function creneaux_html (array $creneaux) {
   }
   return 'Ouvert ' . implode(' et ', $phrase);
 }
+
+function in_creneaux(int $heure, array $creneaux): bool {
+  foreach ($creneaux as $creneau) {
+    $debut = $creneau[0];
+    $fin = $creneaux[1];
+    if ($heure >= $debut && $heure < $fin) {
+      return true;
+    }
+  }
+  return false;
+}
 ?>
