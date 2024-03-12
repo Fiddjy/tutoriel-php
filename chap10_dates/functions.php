@@ -46,9 +46,13 @@ function dump($variable) {
 }
 
 function creneaux_html (array $creneaux) {
-  $phrases = [];
+  $phrase = [];
+  if (empty($creneaux)) {
+    return 'Fermé';
+  };
   foreach ($creneaux as $creneau) {
-    $phrase[] = "de {$creneau[0]}h à {$creneau[1]}";
+    $phrase[] = "de <strong>{$creneau[0]}h</strong> à <strong>{$creneau[1]}h</strong>";
   }
+  return 'Ouvert ' . implode(' et ', $phrase);
 }
 ?>
