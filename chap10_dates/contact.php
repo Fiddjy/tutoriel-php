@@ -2,8 +2,9 @@
 require 'header.php'; 
 $title = "Nous contacter";
 date_default_timezone_set('Europe/Paris');
-$heure = (int)date('G');
-$creneaux = CRENEAUX[date('N') -1];
+$heure = (int)($_GET['heure'] ?? date('G')); // récupère ll'heure de l'url OU prends l'heure actuelle
+$jour = (int)($_GET['jour'] ?? date('N') -1);
+$creneaux = CRENEAUX[$jour];
 $ouvert = in_creneaux($heure, $creneaux);
 $color = 'green';
 // $color = $ouvert ? 'green' : 'red'   <= fonction ternaire
@@ -19,18 +20,31 @@ if (!$ouvert) {
     </div>
     <div class="col-md-4">
         <h2>Horaires d'ouverture</h2>
+
         <?php if($ouvert) : ?>
             <div class="alert alert-success">
-                Le magasin est ouvert
+                Le magasin sera ouvert
             </div>
         <?php else : ?>
             <div class="alert alert-danger">
-                Le magasin est fermé
+                Le magasin sera fermé
             </div>
         <?php endif ?>
+
+        <form action="" method="GET">
+            <div class="form-group">
+                <?= select('jour', $jour, JOURS); ?>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="number" name="heure" value="<?= $heure ?>">
+            </div>
+            <button class="btn btn-primary" type="submit">Voir si le magasin est ouvert</button>
+        </form>
+
         <ul>
             <?php foreach(JOURS as $k => $jour): ?>
-                <li <?php if ($k + 1 === (int)date('N')): ?> style="color:<?= $color ?>" <?php endif ?>>
+                <li>
                     <strong><?= $jour ?> </strong> :
                     <?= creneaux_html(CRENEAUX[$k]) ?>
                 </li>
