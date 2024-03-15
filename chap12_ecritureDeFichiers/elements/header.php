@@ -1,6 +1,6 @@
 <?php
   require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions.php';
-  require_once 'config.php';
+  require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'config.php';
 ?>
 
 <!doctype html>
