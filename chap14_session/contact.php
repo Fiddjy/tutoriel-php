@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require 'elements/header.php'; 
 $title = "Nous contacter";
 date_default_timezone_set('Europe/Paris');
@@ -15,6 +16,10 @@ if (!$ouvert) {
 
 <div class="row">
     <div class="col-md-8">
+        <h2>Debug</h2>
+        <pre>
+            <?= var_dump($_SESSION) ?>
+        </pre>
         <h2>Nous contacter</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus laboriosam adipisci illum, quas accusamus earum numquam debitis rem beatae ipsa excepturi. Itaque libero amet magni officiis error eveniet, ea magnam.</p>
     </div>
