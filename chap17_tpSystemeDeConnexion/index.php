@@ -1,9 +1,9 @@
 <?php  
-session_start();
+/* session_start();
 $_SESSION['user'] = [
   'username' => 'John',
   'password' => '0000'
-]; // Se connecter avec le login john et le mdp 0000
+]; */ // Se connecter avec le login john et le mdp 0000
 // unset($_SESSION['user']); // Se déconnecter
 $title = "Page d'accueil";
 require 'elements/header.php'; 

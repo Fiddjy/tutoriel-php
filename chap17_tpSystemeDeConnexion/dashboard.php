@@ -1,6 +1,7 @@
 <?php
-require 'elements/header.php';
-require 'functions/compteur.php';
+require_once 'functions/auth.php';
+forcer_utilisateur_connecte();
+require_once 'functions/compteur.php';
 $title = 'Dashboard';
 $annee_selection = empty($_GET['annee']) ? null : (int)$_GET['annee'];
 $mois_selection = empty($_GET['mois']) ? null : (int)$_GET['mois'];
@@ -25,6 +26,7 @@ $mois = [
     '11' => 'Novembre',
     '12' => 'Décembre'
 ];
+require_once 'elements/header.php';
 ?>
 
 <div class="row">
