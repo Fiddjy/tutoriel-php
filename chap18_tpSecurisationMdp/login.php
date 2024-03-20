@@ -1,8 +1,12 @@
 <?php 
 
 $erreur = null;
+// Pour générer le mot de passe crypté, dans le terminal : 
+// php -a
+// echo password_hash('Doe', PASSWORD_DEFAULT);
+$password = '$2y$10$lOz5bMWcW8Vm.QZEsk4PweI.4PTPVb.uVKS1SQ2WzORLtXgg2CHc2';
 if(!empty($_POST['pseudo']) && !empty($_POST['motdepasse'])) {
-    if ($_POST['pseudo'] === 'John' && $_POST['motdepasse'] === 'Doe') {
+    if ($_POST['pseudo'] === 'John' && password_verify($_POST['motdepasse'], $password)) {
         session_start();
         $_SESSION['connecte'] = 1;
         header('Location: /dashboard.php');
